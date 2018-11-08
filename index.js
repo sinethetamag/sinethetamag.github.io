@@ -63,7 +63,7 @@ $(function () {
         if (/#issue\d$/.test(hash)) { //is an issue #
             markers.clearLayers();
             var issue_num = parseInt(hash[hash.length - 1]);
-            if ((issue_num > 0) && (issue_num < 9)) {
+            if ((issue_num > 0) && (issue_num < 10)) {
                 $("#sidebar").css("opacity", "1");
                 $(".leaflet-control").css("opacity", "1");
                 sidebar.open("issueInfo");
@@ -99,7 +99,7 @@ $(function () {
                     map.addLayer(markers);
                 });
             }
-            else if ((issue_num > 8) && (issue_num < 10)) {
+            else if ((issue_num > 9) && (issue_num < 11)) {
                 console.log("not released yet");
                 $("#sidebar").css("opacity", "0");
                 $(".leaflet-control").css("opacity", "0");
