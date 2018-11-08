@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans';
+}
+#preorderForm, #formSubmitted {
+    font-family: inherit;
+    padding: 1em;
+    background-color: #FAFAFA;
+    margin: 1em 0;
+}
+input, textarea, select, button {
+    color: black;
+    font-family: inherit;
+    width: calc(100% - 2em);
+    padding: 0.8em 1em;
+    margin: 0.5em 0;
+    border: none;
+    border-radius: 0.2em;
+    background-color: white;
+}
+select {
+    width: 100%;
+}
+label, #howOther {
+    display: none;
+}
+button {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+button:hover {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+}
+
+#how {
+    display: block;
+}
