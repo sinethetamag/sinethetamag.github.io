@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
 
@@ -9,32 +10,36 @@
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
-    integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
-    crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
-    integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
-    crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+        crossorigin=""></script>
     <script type="text/javascript" src="https://cdn.rawgit.com/Turbo87/sidebar-v2/master/js/leaflet-sidebar.min.js"></script>
     <!--[if lte IE 8]><link rel="stylesheet" href="//cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" /><![endif]-->
-    
+
     <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/Turbo87/sidebar-v2/master/css/leaflet-sidebar.min.css"/>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Turbo87/sidebar-v2/master/css/leaflet-sidebar.min.css" />
     <style type="text/css">
         body {
             padding: 0;
             margin: 0;
             font-family: 'Quattrocento Sans', sans-serif;
         }
-        html, body, #map {
+
+        html,
+        body,
+        #map {
             height: 100%;
         }
+
         .active a {
             background-color: grey;
         }
+
         .sidebar-tabs {
             /* border: 3px solid black; */
         }
+
         .sidebar-header {
             height: 80px;
             background-color: white;
@@ -44,21 +49,27 @@
             /* padding-top: 5px; */
             font-size: 30pt;
         }
+
         .sidebar-content {
             background-color: white;
         }
+
         .titleImg {
             height: 100%;
         }
+
         ul {
             margin-top: 0;
         }
+
         .buyLink img {
             width: 100%;
         }
+
         .column a {
             background-color: white;
         }
+
         .column {
             float: left;
             width: 50%;
@@ -70,17 +81,15 @@
             display: table;
             clear: both;
         }
+
         ul {
             padding-left: 20px;
         }
     </style>
-
-    <!--[if lt IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
 </head>
+
 <body>
-     <div id="sidebar" class="sidebar collapsed">
+    <div id="sidebar" class="sidebar collapsed">
         <!-- Nav tabs -->
         <div class="sidebar-tabs">
             <ul role="tablist">
@@ -106,8 +115,12 @@
             <div class="sidebar-pane" id="buy">
                 <h1 class="sidebar-header">BUY<span class="sidebar-close"><i class="fa fa-caret-left"></i></span></h1>
                 <div class="row">
-                    <div class="column"><a class="buyLink" href="http://tinyurl.com/sin5tic"><img src="tictail-logo.png"></a> <center>(shipping included)</center></div>
-                    <div class="column"><a class="buyLink" href="http://tinyurl.com/sin5blurb"><img src="blurb-logo.png"></a> <center>(shipping not included)</center></div>
+                    <div class="column"><a class="buyLink" href="http://tinyurl.com/sin5tic"><img src="tictail-logo.png"></a>
+                        <center>(shipping included)</center>
+                    </div>
+                    <div class="column"><a class="buyLink" href="http://tinyurl.com/sin5blurb"><img src="blurb-logo.png"></a>
+                        <center>(shipping not included)</center>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,20 +128,13 @@
 
     <div id="map" class="sidebar-map"></div>
     <script type="text/javascript">
-        var map = L.map('map'/*, { zoomControl:false }*/).setView([0, -50], 2);
+        var map = L.map('map').setView([0, -50], 2);
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
             maxZoom: 18,
             id: 'mapbox.satellite',
             accessToken: 'pk.eyJ1IjoiY2FrZXNvZndyYXRoIiwiYSI6Ijk5YWI3OTlhMGIxN2I1OWYzYjhlOWJmYjEwNTRjODU0In0._RjYIzLsA5cU-YM6dxGOLQ'
         }).addTo(map);
-        // map.fitWorld().zoomIn();
-        // // map.setZoom(10);
-        // map.touchZoom.disable();
-        // map.doubleClickZoom.disable();
-        // map.scrollWheelZoom.disable();
-        // map.boxZoom.disable();
-        // map.keyboard.disable();
 
         var sidebar = L.control.sidebar('sidebar').addTo(map);
         sidebar.open("issue")
@@ -155,10 +161,11 @@
                 "location": [37.3382, -121.8863]
             },
         ];
-        contributors.forEach(function(contrib){
+        contributors.forEach(function (contrib) {
             var marker = L.marker(contrib["location"]).addTo(map);
             marker.bindPopup(contrib["bio"]);
         });
     </script>
 </body>
+
 </html>
