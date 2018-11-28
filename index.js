@@ -9,6 +9,8 @@ $(function () {
 
     var sidebar = L.control.sidebar('sidebar').addTo(map);
 
+    var CURRENT_ISSUE = 10; // For more modularity, read in all issue\d+.html files and select the maximum digit. Otherwise, manually update for each new issue.
+
     $("#modal").iziModal({
         overlayColor: "rgba(0, 0, 0, .6)",
         overlayClose: false,
@@ -59,19 +61,25 @@ $(function () {
 
     var hashChanged = function () {
         var hash = window.location.hash;
-        // console.log("hash changed!", hash, /#issue\d$/.test(hash));
-        if (/#issue\d$/.test(hash)) { //is an issue #
+        re = /#issue(\d+)/;
+        console.log("hash changed!", hash, re.test(hash));
+        if (re.test(hash)) { //is an issue #
             markers.clearLayers();
-            var issue_num = parseInt(hash[hash.length - 1]);
-            if ((issue_num > 0) && (issue_num < 10)) {
+            var issue_num = parseInt(re.exec(hash)[1]); // parseInt(hash[hash.length - 1]); Removed because only works with single digits
+            if ((issue_num > 0) && (issue_num <= CURRENT_ISSUE)) {
                 $("#sidebar").css("opacity", "1");
                 $(".leaflet-control").css("opacity", "1");
                 sidebar.open("issueInfo");
                 $("#modal").iziModal("close");
                 $("#sidebar-header-img").remove();
-                $("#sidebar-header").prepend('<img class="titleImg" id="sidebar-header-img" src="./images/issue' + issue_num + '_color.png">');
                 $.getJSON("./issues/issue" + issue_num + ".json", function (data) {
                     // console.log(data);
+                    if (!data.noImg) {
+                        $("#sidebar-header").prepend('<img class="titleImg" id="sidebar-header-img" src="./images/issue' + issue_num + '_color.png">');
+                    } else {
+                        $("#sidebar-header").hide();
+                    }
+
                     $("#issueInfoContainer").empty();
                     $("#issueInfoContainer").append(data.about);
                     $("#contributorsInfoContainer").empty();
@@ -99,7 +107,7 @@ $(function () {
                     map.addLayer(markers);
                 });
             }
-            else if ((issue_num > 9) && (issue_num < 11)) {
+            else if (issue_num > CURRENT_ISSUE) {
                 console.log("not released yet");
                 $("#sidebar").css("opacity", "0");
                 $(".leaflet-control").css("opacity", "0");
