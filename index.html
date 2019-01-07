@@ -1,191 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Sine Theta</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
-        crossorigin=""></script>
-    <script type="text/javascript" src="https://cdn.rawgit.com/Turbo87/sidebar-v2/master/js/leaflet-sidebar.min.js"></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sine Theta Mag</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/izimodal/1.5.1/js/iziModal.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/navigo@5.3.3/lib/navigo.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+	<!-- CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="https://cdn.rawgit.com/tarkhov/postboot/v1.0.0-beta3/dist/css/postboot.min.css"/>
 
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="leaflet.css" />
-    <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
-    <link rel="stylesheet" href="leaflet-sidebar.css" />
-    <link href="iziModal.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" />
-    <link href="index.css" rel="stylesheet">
+	<!-- JS -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+	<script src="https://cdn.rawgit.com/tarkhov/postboot/v1.0.0-beta3/dist/js/postboot.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,400i,600,700" rel="stylesheet">
+	<style> body {font-family: 'IBM Plex Mono', monospace;} </style>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="css/style.css" type="text/css" rel="stylesheet">
+
+
 </head>
-
 <body>
-    <div id="sidebar" class="sidebar collapsed">
-        <!-- Nav tabs -->
-        <div class="sidebar-tabs" id="sidebar-tabs">
-            <ul role="tablist">
-                <li>
-                    <a href="#issueInfo" role="tab">
-                        <i class="fa fa-book"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#contributorsInfo" role="tab">
-                        <i class="fa fa-users"></i>
-                    </a>
-                </li>
-                <li>
-                    <a href="#buyInfo" role="tab">
-                        <i class="fa fa-shopping-cart"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
 
-        <!-- Tab panes -->
-        <div class="sidebar-content">
-            <div class="sidebar-pane" id="issueInfo">
-                <h1 class="sidebar-header" id="sidebar-header">
-                    <span class="sidebar-close">
-                        <i class="fa fa-caret-left"></i>
-                    </span>
-                </h1>
-                <br>
-                <div id="issueInfoContainer"></div>
-                <br>
-                <center>
-                    <a href="/">go home.</a>
-                </center>
-                <br>
-            </div>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+  <a class="navbar-brand no-outline" href="index.html">Sine Theta Mag</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link no-outline" href="index.html">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link no-outline" href="about.html">ABOUT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link no-outline" href="issues.html">ISSUES</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link no-outline" href="submit.html">SUBMIT</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link no-outline" target = "_blank" href="http://www.blurb.com/user/sinethetamag">BUY</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link no-outline" target = "_blank" href="http://sinethetamagazine.tumblr.com/">BLOG</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link no-outline" target = "_blank" href="https://www.redbubble.com/people/sinethetamag/collections/872706-sticker-pack-1">MERCH</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-            <div class="sidebar-pane" id="contributorsInfo">
-                <h2 class="sidebar-header text">CONTRIBUTORS
-                    <span class="sidebar-close">
-                        <i class="fa fa-caret-left"></i>
-                    </span>
-                </h2>
-                <ul id="contributorsInfoContainer"></ul>
-                <br>
-                <center>
-                    <a href="/">go home.</a>
-                </center>
-                <br>
-            </div>
 
-            <div class="sidebar-pane" id="buyInfo">
-                <h2 class="sidebar-header text">BUY
-                    <span class="sidebar-close">
-                        <i class="fa fa-caret-left"></i>
-                    </span>
-                </h2>
-                <p id="tictail"></p>
-                <p id="blurb"></p>
-                <p id="zine"></p>
-                <br>
-                <center>
-                    <a href="/">go home.</a>
-                </center>
-                <br>
-            </div>
-        </div>
-    </div>
+<!--- Jumbotron (intro text)-->
+<div class = "container-fluid">
+<div style = "background:transparent !important; margin-top:50px" class = "row jumbotron">
+	<div class = "mx-auto col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+	 <p style = "text-align:center">sinθ is an international print-based creative arts magazine made by and for the Sino diaspora.</p>
+	 <p style = "text-align:center">Stay tuned for our upcoming <a href="issue10.html">Issue #10, THRIVE (盛),</a> which will be released in early February 2019.</p>
+	 </div>
+</div>
+</div>
 
-    <div id="map" class="sidebar-map"></div>
-    <div id="modal" style="max-width: unset!important">
-        <div id="modal-side" class="tabletGone">
-            <a href="#home">
-                <div id="logo_container">
-                    <img id="logo" src="./images/logo.png">
-                </div>
-            </a>
-            <div>
-                <h3>About</h3>
-                <b>sinθ</b> is an international print-based creative arts magazine made by and for the sino diaspora.
 
-                <h3>Recent</h3>
-                <a href="#issue9">Issue #9 ECHO (替)</a> was released November 8!
+<!---Issue-->
+<div class = "container-fluid">
+	<div class = "row justify-content-center">
 
-                <h3>Shop</h3>
-                <a href="http://www.blurb.com/b/9039780-sin-9-echo">blurb</a> (shipping not included in price)
-            </div>
-            <div id="social_navbar_container">
-                <h3>Connect</h3>
-                <ul id="social_navbar">
-                    <li>
-                        <a title="sinethetamagazine" href="https://sinethetamagazine.tumblr.com/">
-                            <i class="fa fa-tumblr-square" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a title="sinethetamag" href="https://instagram.com/sinethetamag">
-                            <i class="fa fa-instagram" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a title="sinethetamagazine" href="https://facebook.com/sinethetamagazine">
-                            <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a id="wechat" title="sinethetamag">
-                            <i class="fa fa-weixin" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a title="sinethetamag@gmail.com" href="mailto:sinethetamag@gmail.com">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div id="navbar_mobile" class="phoneShow">
-            <img src="./images/logo.png">
-            <i id="mobileBars" class="fa fa-bars"></i>
-        </div>
-        <!-- Page content -->
-        <div id="navbar_container" class="phoneGone mobileMenu">
-            <div id="navbar_cont_bg"></div>
-            <div id="navbar_mobile_close" class="phoneShow">
-                <i class="fa fa-close" aria-hidden="true"></i>
-            </div>
-            <ul id="navbar">
-                <li>
-                    <a href="/#home" id="home">home</a>
-                </li>
-                <li>
-                    <a href="/#team" id="team">team</a>
-                </li>
-                <li>
-                    <a href="/#submit" id="submit">submit</a>
-                </li>
-                <li>
-                    <a href="/#issues" id="issues">issues</a>
-                </li>
-                <li>
-                    <a href="https://sinethetamagazine.tumblr.com/">blog</a>
-                </li>
-                <li>
-                    <a href="https://www.redbubble.com/people/sinethetamag/collections/872706-sticker-pack-1">merch</a>
-                </li>
-                <li>
-                    <a href="https://paypal.me/jiaqikang">donate</a>
-                </li>
-            </ul>
-        </div>
-        <div id="content">
+		<div class = "mx auto col-xs-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+			<a href="issue09.html" style="box-shadow:none">
+			<img src = "images/issue9cover.jpg">
+			</a>
+		</div>
+		<div class = "mx auto col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
+			<h4 style = "margin-top:20%">Issue #9, ECHO (替)</h4>
+			<p style = "margin-top:5%">"If nothing within you stays rigid, outward things will disclose themselves. Moving, be like water. Still, be like a mirror. Respond like an echo." -Bruce Lee</p>
+		</div>
 
-        </div>
-    </div>
-    <script type="text/javascript" src="index.js"></script>
+	</div>
+</div>
+
+<!-- Spacer -->
+<div class = "container-fluid">
+<div class = "row justify-content-center">
+	<div class = "col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8">
+		 <hr style="border: 1px solid #eeeeee;" />
+	</div>
+</div>
+</div>
+
+
+<!--- Next Issue right justify-->
+<div class = "container-fluid">
+	<div class = "row justify-content-center">
+
+		<div class = "mx auto col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5" style="text-align:right;z-index:100">
+			<h4 style = "margin-top:20%">Issue #8, GOLD (金)</h4>
+			<p style = "margin-top:5%">This issue, themed in impactful, immaterial, and jingling wealth, features an abundance of creative works from Sino creatives around the world.</p>
+		</div>
+		<div class = "mx auto col-xs-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+			<a href = "issue08.html" style = "box-shadow:none">
+			<img src = "images/issue8cover.jpg">
+			</a>
+		</div>
+
+	</div>
+</div>
+
+<!-- Spacer -->
+<div class = "container-fluid">
+<div class = "row justify-content-center">
+	<div class = "col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8">
+		 <hr style="border: 1px solid #eeeeee;" />
+	</div>
+</div>
+</div>
+
+
+<!--- Next Issue left justify-->
+<div class = "container-fluid">
+	<div class = "row justify-content-center">
+
+		<div class = "mx auto col-xs-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+			<a href = "issue07.html" style = "box-shadow:none">
+			<img src = "images/issue7cover.png">
+			</a>
+		</div>
+		<div class = "mx auto col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
+			<h4 style="margin-top:20%">Issue #7, MUD (泥)</h4>
+			<p style = "margin-top:5%">This issue, themed in deep reflection and natural imagery, takes the visceral impulses of creation and translates them into art.</p>
+		</div>
+
+	</div>
+</div>
+
+<!-- Spacer -->
+<div class = "container-fluid">
+<div class = "row justify-content-center">
+	<div class = "col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8">
+		 <hr style="border: 1px solid #eeeeee;" />
+	</div>
+</div>
+</div>
+
+<!--- Next Issue right justify-->
+<div class = "container-fluid">
+	<div class = "row justify-content-center">
+
+		<div class = "mx auto col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5" style="text-align:right;z-index:100">
+			<h4 style = "margin-top:20%">Issue #6, CLEAR (清)</h4>
+			<p style = "margin-top:5%">Issue #6 was released in February 2018. Its theme is CLEAR (清).</p>
+		</div>
+		<div class = "mx auto col-xs-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+			<a href = "issue06.html" style = "box-shadow:none">
+			<img src = "images/issue6cover.png">
+			</a>
+		</div>
+
+	</div>
+</div>
+
+<!-- Spacer -->
+<div class = "container-fluid">
+<div class = "row justify-content-center">
+	<div class = "col-xs-6 col-sm-6 col-md-8 col-lg-8 col-xl-8">
+		 <hr style="border: 1px solid #eeeeee;" />
+	</div>
+</div>
+</div>
+
+<!--- Next Issue left justify -->
+<div class = "container-fluid">
+	<div class = "row justify-content-center">
+
+		<div class = "mx auto col-xs-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+			<a href = "issue05.html" style = "box-shadow:none">
+			<img src = "images/issue5cover.jpg">
+			</a>
+		</div>
+		<div class = "mx auto col-xs-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
+			<h4 style="margin-top:20%">Issue #5, FLOW (流)</h4>
+			<p style = "margin-top:5%">Issue #5 was released in August 2017. Its theme is FLOW（流）.</p>
+		</div>
+
+	</div>
+</div>
+
+
+
+<!--- Link to see all issues -->
+<div class = "container-fluid">
+<div style = "background:transparent !important" class = "row jumbotron">
+	<div class = "mx-auto col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2">
+	<a href="issues.html" style="box-shadow:none"><button type = "button" class = "btn btn-outline-secondary">SEE ALL ISSUES</button></a>
+</div>
+</div>
+
+
+
+
 </body>
-
 </html>
