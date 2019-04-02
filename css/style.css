@@ -5,6 +5,10 @@
   box-shadow:none;
 }
 
+.nav-link{
+  color: #212529;
+}
+
 img{
   width:100%;
 }
