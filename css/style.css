@@ -39,6 +39,10 @@ a:hover{
   
 }
 
+.dropdown-item.active {
+  background-color:#F7E29F;
+}
+
 
 /*---Firefox Bug Fix --*/
 .carousel-item {
