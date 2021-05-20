@@ -39,7 +39,7 @@ a:hover{
   
 }
 
-.dropdown-item.active {
+.dropdown-item.active, .dropdown-item:active {
   background-color:#F7E29F;
 }
 
